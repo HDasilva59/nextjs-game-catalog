@@ -17,7 +17,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 const Home: NextPage = (props) => {
-  const test = JSON.parse(props.games);
   const test2 = props.platforms;
   const uniqueArray = test2.filter(function (item, pos) {
     return test2.indexOf(item) == pos;
@@ -39,6 +38,7 @@ const Home: NextPage = (props) => {
       <Link href={"/none"}>
         <a>Login</a>
       </Link>
+      <Link href={"/allgames"}><a>All games</a></Link>
       <ul>{platformsParsed(uniqueArray)}</ul>
     </div>
   );
