@@ -1,5 +1,6 @@
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
+import { useEffect } from "react";
 import { getDatabase } from "../src/database";
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -17,6 +18,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 const Home: NextPage = (props) => {
+
+  useEffect(() => {
+    <></>
+  })
+
   const test2 = props.platforms;
   const uniqueArray = test2.filter(function (item, pos) {
     return test2.indexOf(item) == pos;
@@ -33,11 +39,11 @@ const Home: NextPage = (props) => {
       </li>
     ));
   }
+
   return (
     <div>
-      <Link href={"/none"}>
-        <a>Login</a>
-      </Link>
+        <a href="/api/auth/login">Login</a>
+        <a href="/api/auth/logout">Logout</a>
       <Link href={"/allgames"}><a>All games</a></Link>
       <ul>{platformsParsed(uniqueArray)}</ul>
     </div>
