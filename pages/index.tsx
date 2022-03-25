@@ -19,10 +19,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 const Home: NextPage = (props) => {
 
-  useEffect(() => {
-    <></>
-  })
-
   const test2 = props.platforms;
   const uniqueArray = test2.filter(function (item, pos) {
     return test2.indexOf(item) == pos;
@@ -41,9 +37,19 @@ const Home: NextPage = (props) => {
   }
 
   return (
-    <div>
-        <a href="/api/auth/login">Login</a>
-        <a href="/api/auth/logout">Logout</a>
+    <div >
+      <Link href="/api/auth/login">
+        <a>Login</a>
+      </Link>
+
+      <Link href="/api/auth/logout">
+        <a>Logout</a>
+      </Link>
+
+      <Link href="/useraccount">
+        <a>My account</a>
+      </Link>
+
       <Link href={"/allgames"}><a>All games</a></Link>
       <ul>{platformsParsed(uniqueArray)}</ul>
     </div>
